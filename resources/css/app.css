@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -6,11 +7,14 @@
 @source '../**/*.js';
 
 @theme {
---font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+--font-sans: 'Cairo', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
---font-source: "Source Serif 4", serif; 
+--font-source: 'Cairo', ui-sans-serif, system-ui, serif; 
 --color-*: initial;
---color-gold: #FF9A00;
---color-dark-gold: #FFD93D;
---color-white: #F6F1E9;
+--color-background: #F9FAFB;
+--color-surface: #FFFFFF;
+--color-text-primary: #111827;
+--color-text-secondary: #6B7280;
+--color-gold: #D97706;
+--color-dark-gold: #B45309;
 }

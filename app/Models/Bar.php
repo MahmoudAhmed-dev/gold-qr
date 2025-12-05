@@ -9,6 +9,7 @@ class Bar extends Model
 {
     use HasFactory;
     protected $fillable = ['code', 'serial_number', 'material_id', 'weight', 'fineness'];
+    protected $with = ['material'];
 
     public function material()
     {
