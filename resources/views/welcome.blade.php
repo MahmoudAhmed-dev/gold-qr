@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ __('welcome.store_name') }}</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="bg-background text-text-primary font-sans flex flex-col min-h-screen">
-    <div class="flex-grow flex flex-col items-center justify-center p-8 text-center">
+<x-layout>
+    <div class="flex-grow flex flex-col items-center justify-center p-8 text-center min-h-[80vh]">
         <div class="mb-8">
             <!-- Placeholder Logo -->
             <svg class="w-32 h-32 text-gold mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -20,8 +12,4 @@
             {{ __('welcome.browse_collection') }}
         </a>
     </div>
-    <footer class="p-4 text-center text-text-secondary text-sm">
-        &copy; {{ date('Y') }} {{ __('welcome.store_name') }}. All rights reserved.
-    </footer>
-</body>
-</html>
+</x-layout>

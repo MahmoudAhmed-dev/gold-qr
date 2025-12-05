@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ __('bars.title') }}</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="bg-background text-text-primary font-sans">
+<x-layout>
+    <x-slot:title>
+        {{ __('bars.title') }}
+    </x-slot>
+
     <div class="container mx-auto p-8">
         <h1 class="text-3xl font-bold text-gold mb-8">{{ __('bars.header') }}</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
             @foreach($bars as $bar)
                 <div class="bg-surface p-6 rounded-lg border border-text-secondary shadow-md hover:shadow-lg transition-shadow duration-300 md:flex md:items-center md:justify-between">
                     <a href="{{ route('bars.show', [app()->getLocale(), $bar->id]) }}" class="font-source block">
@@ -24,6 +20,4 @@
             @endforeach
         </div>
     </div>
-</body>
-@vite('resources/js/app.js')
-</html>
+</x-layout>

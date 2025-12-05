@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ __('bars.bar_details') }}</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="bg-background text-text-primary font-sans">
+<x-layout>
+    <x-slot:title>
+        {{ __('bars.bar_details') }}
+    </x-slot>
+
     <div class="container mx-auto p-8">
         <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-gold hover:underline mb-8 block">{{ __('bars.back_to_list') }}</a>
         <h1 class="text-3xl font-bold text-gold mb-8">{{ __('bars.bar_details') }}</h1>
@@ -21,6 +17,4 @@
             <canvas id="qrcode" class="mx-auto md:m-0 mt-4"></canvas>
         </div>
     </div>
-    @vite('resources/js/app.js')
-</body>
-</html>
+</x-layout>
