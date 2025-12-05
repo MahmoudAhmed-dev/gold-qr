@@ -18,6 +18,11 @@ return [
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
+    'default_admin' => [
+        'email' => env('DEFAULT_ADMIN_EMAIL', 'admin@example.com'),
+        'password' => env('DEFAULT_ADMIN_PASSWORD', '12345678'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
