@@ -59,7 +59,7 @@ class PasswordResetController extends Controller
         );
 
         if ($status === Password::PASSWORD_RESET) {
-            return redirect()->route('login', app()->getLocale())->with('status', __($status));
+            return redirect()->route('login', ['locale' => app()->getLocale()])->with('status', __($status));
         }
 
         throw ValidationException::withMessages([
