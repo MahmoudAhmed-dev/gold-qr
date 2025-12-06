@@ -33,25 +33,32 @@
                             <p>{{ __('bars.weight') }}: {{ $bar->weight }} {{ __('bars.gram') }}</p>
                             <p>{{ __('bars.fineness') }}: {{ $bar->fineness }}</p>
                         </a>
+                        
+                        <div class="md:hidden my-4 flex justify-center">
+                            <canvas class="qrcode-canvas" data-url="{{ route('bars.show', [app()->getLocale(), $bar->id]) }}"></canvas>
+                        </div>
+
                         @auth
-                            <div class="mt-4 flex gap-4">
-                                <button type="button" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors download-qr-btn" data-filename="QR-{{ $bar->code }}-{{ $bar->serial_number }}">
+                            <div class="mt-4 flex flex-wrap gap-4">
+                                <button type="button" class="flex-1 lg:flex-none bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors download-qr-btn flex items-center justify-center" data-filename="QR-{{ $bar->code }}-{{ $bar->serial_number }}">
                                     {{ __('bars.download_qr') }}
                                 </button>
-                                <a href="{{ route('bars.edit', [app()->getLocale(), $bar->id]) }}" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
+                                <a href="{{ route('bars.edit', [app()->getLocale(), $bar->id]) }}" class="flex-1 lg:flex-none bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors flex items-center justify-center">
                                     {{ __('bars.edit') }}
                                 </a>
-                                <form action="{{ route('bars.destroy', [app()->getLocale(), $bar->id]) }}" method="POST" class="inline" onsubmit="return confirm('{{ __('bars.confirm_delete') }}')">
+                                <form action="{{ route('bars.destroy', [app()->getLocale(), $bar->id]) }}" method="POST" class="flex-1 lg:flex-none flex" onsubmit="return confirm('{{ __('bars.confirm_delete') }}')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
+                                    <button type="submit" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors w-full h-full flex items-center justify-center">
                                         {{ __('bars.delete') }}
                                     </button>
                                 </form>
                             </div>
                         @endauth
                     </div>
-                    <canvas class="qrcode-canvas mx-auto md:m-0 mt-4" data-url="{{ route('bars.show', [app()->getLocale(), $bar->id]) }}"></canvas>
+                    <div class="hidden md:block ml-4 rtl:mr-4 rtl:ml-0">
+                        <canvas class="qrcode-canvas" data-url="{{ route('bars.show', [app()->getLocale(), $bar->id]) }}"></canvas>
+                    </div>
                 </div>
             @endforeach
         </div>
