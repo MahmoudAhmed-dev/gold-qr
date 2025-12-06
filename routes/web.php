@@ -8,7 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
-    return redirect('ar');
+    return redirect(session('locale', 'ar'));
 });
 
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], function () {
