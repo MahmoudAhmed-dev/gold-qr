@@ -5,10 +5,10 @@ use App\Http\Controllers\BarController;
 use App\Http\Controllers\SearchController;
 
 Route::get('/', function () {
-    return redirect(app()->getLocale());
+    return redirect('ar');
 });
 
-Route::group(['prefix' => '{locale}'], function () {
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], function () {
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
@@ -22,4 +22,8 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::delete('/bars/{bar}', [BarController::class, 'destroy'])->name('bars.destroy');
     Route::get('/search', [SearchController::class, 'index'])->name('search');
     Route::post('/search', [SearchController::class, 'find'])->name('search.find');
+});
+
+Route::fallback(function () {
+    return redirect('/ar' . request()->getRequestUri());
 });

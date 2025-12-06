@@ -15,15 +15,21 @@
                 </svg>
                 {{ __('welcome.store_name') }}
             </a>
-            <nav class="flex gap-6">
+            <nav class="flex gap-6 items-center">
                 <a href="{{ route('home', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.home') }}</a>
                 <a href="{{ route('search', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.search') }}</a>
                 <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.bars') }}</a>
+                
+                @if(Route::currentRouteName())
+                    <a href="{{ route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['locale' => app()->getLocale() == 'ar' ? 'en' : 'ar'])) }}" class="text-gold font-bold border border-gold px-2 py-1 rounded hover:bg-gold hover:text-white transition-colors text-sm">
+                        {{ app()->getLocale() == 'ar' ? 'English' : 'العربية' }}
+                    </a>
+                @endif
             </nav>
         </div>
     </header>
 
-    <main class="flex-grow">
+    <main class="grow">
         {{ $slot }}
     </main>
 
