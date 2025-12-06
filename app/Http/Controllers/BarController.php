@@ -20,6 +20,11 @@ class BarController extends Controller
             });
         }
 
+        if ($request->filled('code') && $request->filled('serial_number')) {
+            $query->where('code', $request->input('code'))
+                  ->where('serial_number', $request->input('serial_number'));
+        }
+
         $bars = $query->paginate(12);
         return view('bars.index', compact('bars'));
     }

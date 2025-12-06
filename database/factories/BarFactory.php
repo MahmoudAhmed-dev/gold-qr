@@ -15,7 +15,7 @@ class BarFactory extends Factory
         $materials = Material::pluck('id')->toArray();
 
         return [
-            'code' => strtoupper($this->faker->numberBetween(000000, 999999)),
+            'code' => $this->faker->word(),
             'serial_number' => $this->faker->unique()->numerify('S######'),
             'material_id' => $this->faker->randomElement($materials) ?? null,
             'weight' => $this->faker->numberBetween(50, 5000),

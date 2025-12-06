@@ -23,4 +23,5 @@ return [
     'select_material' => 'Select Material',
     'search_placeholder' => 'Search by Code or Serial Number',
     'search' => 'Search',
+    'bar_not_found' => 'No bar found with this Code and Serial Number.',
 ];

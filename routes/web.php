@@ -21,4 +21,5 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::put('/bars/{bar}', [BarController::class, 'update'])->name('bars.update');
     Route::delete('/bars/{bar}', [BarController::class, 'destroy'])->name('bars.destroy');
     Route::get('/search', [SearchController::class, 'index'])->name('search');
+    Route::post('/search', [SearchController::class, 'find'])->name('search.find');
 });
