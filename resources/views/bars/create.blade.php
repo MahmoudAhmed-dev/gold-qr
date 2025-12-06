@@ -43,7 +43,7 @@
 
                 <div class="mb-4">
                     <label for="weight" class="block text-text-secondary mb-2">{{ __('bars.weight') }} ({{ __('bars.gram') }})</label>
-                    <input type="number" step="0.01" name="weight" id="weight" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('weight') }}" required>
+                    <input type="number" step="0.1" name="weight" id="weight" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('weight') }}" required>
                     @error('weight')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror

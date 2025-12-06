@@ -16,6 +16,7 @@ class BarFactory extends Factory
 
         return [
             'code' => $this->faker->word(),
+            'identifier' => $this->faker->unique()->bothify('######'),
             'serial_number' => $this->faker->unique()->numerify('S######'),
             'material_id' => $this->faker->randomElement($materials) ?? null,
             'weight' => $this->faker->numberBetween(50, 5000),

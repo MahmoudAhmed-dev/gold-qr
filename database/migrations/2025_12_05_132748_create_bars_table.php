@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('bars', function (Blueprint $table) {
             $table->id();
             $table->string('code');
+            $table->string('identifier')->unique();
             $table->string('serial_number');
             $table->foreignId('material_id')->constrained('materials')->onDelete('restrict');
             $table->integer('weight');
-            $table->decimal('fineness', 5, 2);
+            $table->decimal('fineness', 5, 1);
             $table->timestamps();
         });
     }

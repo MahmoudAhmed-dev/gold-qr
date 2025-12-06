@@ -10,7 +10,7 @@ class BarController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Bar::with('material');
+        $query = Bar::latest()->with('material');
 
         if ($request->has('search')) {
             $search = $request->input('search');
@@ -29,8 +29,9 @@ class BarController extends Controller
         return view('bars.index', compact('bars'));
     }
     
-    public function show(string $locale, Bar $bar)
+    public function show(string $locale, string $barIdentifier)
     {        
+        $bar = Bar::where('identifier', $barIdentifier)->with('material')->firstOrFail();
         return view('bars.show', compact('bar'));
     }
 
@@ -50,6 +51,7 @@ class BarController extends Controller
             'fineness' => 'required|numeric',
         ]);
 
+        $validated['identifier'] = base_convert(time(), 10, 36);
         Bar::create($validated);
 
         return redirect()->route('bars.index', app()->getLocale())->with('success', 'Bar created successfully.');

@@ -31,7 +31,6 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
     // Public Routes
-    Route::get('/bars/{bar}', [BarController::class, 'show'])->name('bars.show');
     Route::get('/search', [SearchController::class, 'index'])->name('search');
     Route::post('/search', [SearchController::class, 'find'])->name('search.find');
     
@@ -39,7 +38,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-
+        
         Route::get('/bars', [BarController::class, 'index'])->name('bars.index');
         Route::get('/bars/create', [BarController::class, 'create'])->name('bars.create');
         Route::post('/bars', [BarController::class, 'store'])->name('bars.store');
@@ -47,6 +46,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
         Route::put('/bars/{bar}', [BarController::class, 'update'])->name('bars.update');
         Route::delete('/bars/{bar}', [BarController::class, 'destroy'])->name('bars.destroy');
     });
+    Route::get('/bars/{bar}', [BarController::class, 'show'])->name('bars.show');
 });
 
 Route::fallback(function () {

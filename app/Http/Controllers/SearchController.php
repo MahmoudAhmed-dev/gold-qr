@@ -24,7 +24,7 @@ class SearchController extends Controller
                   ->first();
 
         if ($bar) {
-            return redirect()->route('bars.show', [app()->getLocale(), $bar->id]);
+            return redirect()->route('bars.show', [app()->getLocale(), $bar->identifier]);
         }
 
         return back()->with('error', __('bars.bar_not_found'))->withInput();
