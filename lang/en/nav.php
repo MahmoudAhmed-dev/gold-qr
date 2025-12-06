@@ -2,6 +2,6 @@
 
 return [
     'home' => 'Home',
-    'search' => 'Search',
+    'search' => 'Certify',
     'bars' => 'Gold Bars',
 ];
