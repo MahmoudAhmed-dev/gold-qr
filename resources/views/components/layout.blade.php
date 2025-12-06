@@ -29,6 +29,7 @@
                 <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.dashboard') }}</a>
                 
                 @auth
+                    <a href="{{ route('profile.edit', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.profile') }}</a>
                     <form action="{{ route('logout', app()->getLocale()) }}" method="POST" class="inline">
                         @csrf
                         <button type="submit" class="text-text-primary hover:text-gold transition-colors border border-black px-4 py-2 rounded">{{ __('auth.logout') }}</button>
@@ -63,6 +64,7 @@
                     <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors block py-2">{{ __('nav.dashboard') }}</a>
                     
                     @auth
+                        <a href="{{ route('profile.edit', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors block py-2">{{ __('nav.profile') }}</a>
                         <form action="{{ route('logout', app()->getLocale()) }}" method="POST" class="block">
                             @csrf
                             <button type="submit" class="text-text-primary hover:text-gold transition-colors w-full py-2 border border-black rounded">{{ __('auth.logout') }}</button>

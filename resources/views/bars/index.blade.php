@@ -15,7 +15,7 @@
 
         <div class="mb-6">
             <form action="{{ route('bars.index', app()->getLocale()) }}" method="GET" class="flex gap-2">
-                <input type="text" name="search" placeholder="{{ __('bars.search_placeholder') }}" value="{{ request('search') }}" class="w-full p-2 rounded border border-gray-300 focus:outline-none focus:border-gold">
+                <input type="text" name="search" placeholder="{{ __('bars.search_placeholder') }}" value="{{ request('search') }}" class="w-full bg-surface p-2 rounded border border-gray-300 focus:outline-none focus:border-gold">
                 <button type="submit" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
                     {{ __('bars.search') }}
                 </button>

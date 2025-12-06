@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return redirect('ar');
@@ -36,6 +37,9 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     
     // Protected Routes
     Route::middleware('auth')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
         Route::get('/bars', [BarController::class, 'index'])->name('bars.index');
         Route::get('/bars/create', [BarController::class, 'create'])->name('bars.create');
         Route::post('/bars', [BarController::class, 'store'])->name('bars.store');
