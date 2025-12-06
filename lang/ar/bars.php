@@ -11,6 +11,7 @@ return [
     'fineness' => 'النقاء',
     'bar_details' => 'تفاصيل السبيكة',
     'back_to_list' => 'العودة إلى القائمة',
+    'back_to_search' => 'العودة إلى البحث',
     'create_new' => 'إضافة سبيكة جديدة',
     'create_bar' => 'إضافة سبيكة',
     'edit_bar' => 'تعديل السبيكة',

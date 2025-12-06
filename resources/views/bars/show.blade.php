@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="container mx-auto p-8">
-        <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-gold hover:underline mb-8 block">{{ __('bars.back_to_list') }}</a>
+        <a href="{{ route('search', app()->getLocale()) }}" class="text-gold hover:underline mb-8 block">{{ __('bars.back_to_search') }}</a>
         <h1 class="text-3xl font-bold text-gold mb-8">{{ __('bars.bar_details') }}</h1>
         <div class="bg-surface text-text-primary p-6 rounded-lg border border-text-secondary shadow-md max-w-md mx-auto md:flex md:items-center md:justify-between">
             <div class="font-source">

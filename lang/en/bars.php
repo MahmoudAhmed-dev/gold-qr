@@ -11,6 +11,7 @@ return [
     'fineness' => 'Fineness',
     'bar_details' => 'Bar Details',
     'back_to_list' => 'Back to List',
+    'back_to_search' => 'Back to Search',
     'create_new' => 'Create New Bar',
     'create_bar' => 'Create Bar',
     'edit_bar' => 'Edit Bar',
