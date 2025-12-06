@@ -26,9 +26,9 @@
             <nav class="hidden md:flex gap-6 items-center text-nowrap">
                 <a href="{{ route('home', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.home') }}</a>
                 <a href="{{ route('search', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.search') }}</a>
-                <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.dashboard') }}</a>
                 
                 @auth
+                    <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.dashboard') }}</a>
                     <a href="{{ route('profile.edit', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.profile') }}</a>
                     <form action="{{ route('logout', app()->getLocale()) }}" method="POST" class="inline">
                         @csrf
@@ -61,9 +61,9 @@
                 <nav class="p-4 flex flex-col gap-4">
                     <a href="{{ route('home', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors block py-2">{{ __('nav.home') }}</a>
                     <a href="{{ route('search', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors block py-2">{{ __('nav.search') }}</a>
-                    <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors block py-2">{{ __('nav.dashboard') }}</a>
                     
                     @auth
+                        <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors block py-2">{{ __('nav.dashboard') }}</a>
                         <a href="{{ route('profile.edit', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors block py-2">{{ __('nav.profile') }}</a>
                         <form action="{{ route('logout', app()->getLocale()) }}" method="POST" class="block">
                             @csrf
