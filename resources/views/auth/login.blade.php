@@ -37,11 +37,11 @@
                     {{ __('auth.login') }}
                 </button>
 
-                <div class="mt-4 text-center">
+                {{-- <div class="mt-4 text-center">
                     <a href="{{ route('password.request', app()->getLocale()) }}" class="text-gold hover:underline text-sm">
                         {{ __('auth.forgot_password') }}
                     </a>
-                </div>
+                </div> --}}
             </form>
         </div>
     </div>

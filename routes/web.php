@@ -21,10 +21,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
         Route::post('/login', [AuthController::class, 'login'])->name('login.store');
         
         // Password Reset Routes
-        Route::get('/forgot-password', [PasswordResetController::class, 'create'])->name('password.request');
-        Route::post('/forgot-password', [PasswordResetController::class, 'store'])->name('password.email');
-        Route::get('/reset-password/{token}', [PasswordResetController::class, 'edit'])->name('password.reset');
-        Route::post('/reset-password', [PasswordResetController::class, 'update'])->name('password.update');
+        // Route::get('/forgot-password', [PasswordResetController::class, 'create'])->name('password.request');
+        // Route::post('/forgot-password', [PasswordResetController::class, 'store'])->name('password.email');
+        // Route::get('/reset-password/{token}', [PasswordResetController::class, 'edit'])->name('password.reset');
+        // Route::post('/reset-password', [PasswordResetController::class, 'update'])->name('password.update');
     });
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
