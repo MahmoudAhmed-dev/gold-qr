@@ -3,7 +3,7 @@
 return [
     'title' => 'Gold Bars',
     'header' => 'Gold Bar Data',
-    'code' => 'Code',
+    'code' => 'Item code',
     'serial_number' => 'Serial Number',
     'material' => 'Material',
     'weight' => 'Weight',
