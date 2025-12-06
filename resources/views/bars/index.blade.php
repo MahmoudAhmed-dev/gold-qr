@@ -35,6 +35,9 @@
                         </a>
                         @auth
                             <div class="mt-4 flex gap-4">
+                                <button type="button" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors download-qr-btn" data-filename="QR-{{ $bar->code }}-{{ $bar->serial_number }}">
+                                    {{ __('bars.download_qr') }}
+                                </button>
                                 <a href="{{ route('bars.edit', [app()->getLocale(), $bar->id]) }}" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
                                     {{ __('bars.edit') }}
                                 </a>

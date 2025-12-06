@@ -25,4 +25,5 @@ return [
     'search_placeholder' => 'Search by Code or Serial Number',
     'search' => 'Search',
     'bar_not_found' => 'No bar found with this Code and Serial Number.',
+    'download_qr' => 'Download QR',
 ];

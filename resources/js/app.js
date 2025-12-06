@@ -19,3 +19,21 @@ canvases.forEach(canvas => {
     }
 });
 
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.download-qr-btn');
+    if (btn) {
+        const container = btn.closest('.bg-surface'); 
+        
+        if (container) {
+            const canvas = container.querySelector('.qrcode-canvas');
+            if (canvas) {
+                const image = canvas.toDataURL("image/png");
+                const link = document.createElement('a');
+                link.download = (btn.dataset.filename || 'qrcode') + '.png';
+                link.href = image;
+                link.click();
+            }
+        }
+    }
+});
+
