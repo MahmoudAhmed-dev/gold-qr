@@ -6,9 +6,11 @@
     <div class="container mx-auto p-8">
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-bold text-gold">{{ __('bars.header') }}</h1>
-            <a href="{{ route('bars.create', app()->getLocale()) }}" class="bg-gold text-surface px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
-                {{ __('bars.create_new') }}
-            </a>
+            @auth
+                <a href="{{ route('bars.create', app()->getLocale()) }}" class="bg-gold text-surface px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
+                    {{ __('bars.create_new') }}
+                </a>
+            @endauth
         </div>
 
         <div class="mb-6">
@@ -31,18 +33,20 @@
                             <p>{{ __('bars.weight') }}: {{ $bar->weight }} {{ __('bars.gram') }}</p>
                             <p>{{ __('bars.fineness') }}: {{ $bar->fineness }}</p>
                         </a>
-                        <div class="mt-4 flex gap-4">
-                            <a href="{{ route('bars.edit', [app()->getLocale(), $bar->id]) }}" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
-                                {{ __('bars.edit') }}
-                            </a>
-                            <form action="{{ route('bars.destroy', [app()->getLocale(), $bar->id]) }}" method="POST" class="inline" onsubmit="return confirm('{{ __('bars.confirm_delete') }}')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
-                                    {{ __('bars.delete') }}
-                                </button>
-                            </form>
-                        </div>
+                        @auth
+                            <div class="mt-4 flex gap-4">
+                                <a href="{{ route('bars.edit', [app()->getLocale(), $bar->id]) }}" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
+                                    {{ __('bars.edit') }}
+                                </a>
+                                <form action="{{ route('bars.destroy', [app()->getLocale(), $bar->id]) }}" method="POST" class="inline" onsubmit="return confirm('{{ __('bars.confirm_delete') }}')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
+                                        {{ __('bars.delete') }}
+                                    </button>
+                                </form>
+                            </div>
+                        @endauth
                     </div>
                     <canvas class="qrcode-canvas mx-auto md:m-0 mt-4" data-url="{{ route('bars.show', [app()->getLocale(), $bar->id]) }}"></canvas>
                 </div>

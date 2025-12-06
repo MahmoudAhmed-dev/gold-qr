@@ -25,7 +25,7 @@
                     <input type="text" name="serial_number" id="serial_number" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('serial_number') }}" required>
                 </div>
 
-                <button type="submit" class="w-full bg-gold text-white px-6 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">
+                <button type="submit" class="w-full bg-gold text-surface px-6 py-3 rounded-lg font-semibold hover:bg-dark-gold transition-colors">
                     {{ __('nav.search') }}
                 </button>
             </form>

@@ -13,8 +13,20 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'failed' => 'بيانات الاعتماد هذه غير متطابقة مع سجلاتنا.',
+    'password' => 'كلمة المرور المستخدمة غير صحيحة.',
+    'throttle' => 'عدد كبير جدا من محاولات الدخول. يرجى المحاولة مرة أخرى بعد :seconds ثانية.',
+    'login' => 'تسجيل الدخول',
+    'register' => 'تسجيل جديد',
+    'logout' => 'تسجيل الخروج',
+    'email' => 'البريد الإلكتروني',
+    'password_label' => 'كلمة المرور',
+    'confirm_password' => 'تأكيد كلمة المرور',
+    'name' => 'الاسم',
+    'remember_me' => 'تذكرني',
+    'forgot_password' => 'نسيت كلمة المرور؟',
+    'dont_have_account' => 'ليس لديك حساب؟',
+    'already_have_account' => 'لديك حساب بالفعل؟',
+    'send_reset_link' => 'إرسال رابط إعادة تعيين كلمة المرور',
+    'reset_password' => 'إعادة تعيين كلمة المرور',
 ];

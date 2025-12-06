@@ -20,8 +20,17 @@
                 <a href="{{ route('search', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.search') }}</a>
                 <a href="{{ route('bars.index', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('nav.bars') }}</a>
                 
+                @auth
+                    <form action="{{ route('logout', app()->getLocale()) }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit" class="text-text-primary hover:text-gold transition-colors">{{ __('auth.logout') }}</button>
+                    </form>
+                @else
+                    <a href="{{ route('login', app()->getLocale()) }}" class="text-text-primary hover:text-gold transition-colors">{{ __('auth.login') }}</a>
+                @endauth
+
                 @if(Route::currentRouteName())
-                    <a href="{{ route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['locale' => app()->getLocale() == 'ar' ? 'en' : 'ar'])) }}" class="text-gold font-bold border border-gold px-2 py-1 rounded hover:bg-gold hover:text-white transition-colors text-sm">
+                    <a href="{{ route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['locale' => app()->getLocale() == 'ar' ? 'en' : 'ar'])) }}" class="text-gold font-bold border border-gold px-2 py-1 rounded hover:bg-gold hover:text-surface transition-colors text-sm">
                         {{ app()->getLocale() == 'ar' ? 'English' : 'العربية' }}
                     </a>
                 @endif
