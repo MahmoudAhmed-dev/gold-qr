@@ -25,8 +25,42 @@ document.addEventListener('click', function(e) {
         const container = btn.closest('.bg-surface'); 
         
         if (container) {
-            const canvas = container.querySelector('.qrcode-canvas');
-            if (canvas) {
+            const sourceCanvas = container.querySelector('.qrcode-canvas');
+            if (sourceCanvas) {
+                // Create a new canvas for the composite image
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                const padding = 10;
+                const textWidth = 200; // Space for text
+                
+                // Set dimensions
+                canvas.width = sourceCanvas.width + (padding * 2) + textWidth;
+                canvas.height = sourceCanvas.height + (padding * 2);
+                
+                // Fill white background
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw QR Code
+                ctx.drawImage(sourceCanvas, padding, padding);
+                
+                // Draw Text
+                ctx.fillStyle = '#000000';
+                ctx.font = 'bold 22px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                const code = btn.dataset.code || '';
+                const serial = btn.dataset.serial || '';
+                
+                const textX = sourceCanvas.width + (padding * 2) + (textWidth / 2);
+                const centerY = canvas.height / 2;
+                
+                ctx.fillText(`${code}`, textX, centerY - 20);
+                ctx.fillText(`${serial}`, textX, centerY + 20);
+                
+                // Download
                 const image = canvas.toDataURL("image/png");
                 const link = document.createElement('a');
                 link.download = (btn.dataset.filename || 'qrcode') + '.png';

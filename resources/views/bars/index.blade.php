@@ -40,7 +40,11 @@
 
                         @auth
                             <div class="mt-4 flex flex-wrap gap-4">
-                                <button type="button" class="flex-1 lg:flex-none bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors download-qr-btn flex items-center justify-center" data-filename="QR-{{ $bar->code }}-{{ $bar->serial_number }}">
+                                <button type="button" class="flex-1 lg:flex-none bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors download-qr-btn flex items-center justify-center" 
+                                    data-filename="QR-{{ $bar->code }}-{{ $bar->serial_number }}"
+                                    data-code="{{ $bar->code }}"
+                                    data-serial="{{ $bar->serial_number }}"
+                                >
                                     {{ __('bars.download_qr') }}
                                 </button>
                                 <a href="{{ route('bars.edit', [app()->getLocale(), $bar->id]) }}" class="flex-1 lg:flex-none bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors flex items-center justify-center">
