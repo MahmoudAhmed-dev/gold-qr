@@ -4,11 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
-    return redirect(session('locale', 'ar'));
+    return redirect(session('locale', config('app.locale', 'ar')));
 });
 
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], function () {
@@ -55,5 +54,5 @@ Route::fallback(function () {
         app()->setLocale($locale);
         abort(404);
     }
-    return redirect('/' . session('locale', 'ar') . request()->getRequestUri());
+    return redirect('/' . session('locale', config('app.locale', 'ar')) . request()->getRequestUri());
 });
