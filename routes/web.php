@@ -20,7 +20,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::middleware('guest')->group(function () {
         Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
         Route::post('/login', [AuthController::class, 'login'])->name('login.store');
-        
+
         // Password Reset Routes
         // Route::get('/forgot-password', [PasswordResetController::class, 'create'])->name('password.request');
         // Route::post('/forgot-password', [PasswordResetController::class, 'store'])->name('password.email');
@@ -33,12 +33,12 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     // Public Routes
     Route::get('/search', [SearchController::class, 'index'])->name('search');
     Route::post('/search', [SearchController::class, 'find'])->name('search.find');
-    
+
     // Protected Routes
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        
+
         Route::get('/bars', [BarController::class, 'index'])->name('bars.index');
         Route::get('/bars/create', [BarController::class, 'create'])->name('bars.create');
         Route::post('/bars', [BarController::class, 'store'])->name('bars.store');
@@ -50,5 +50,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 });
 
 Route::fallback(function () {
-    return redirect('/ar' . request()->getRequestUri());
+    $locale = request()->segment(1);
+    if (in_array($locale, ['en', 'ar'])) {
+        app()->setLocale($locale);
+        abort(404);
+    }
+    return redirect('/' . session('locale', 'ar') . request()->getRequestUri());
 });
