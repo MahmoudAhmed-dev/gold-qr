@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
             return Password::min(8)
                 ->mixedCase()
                 ->numbers()
-                ->symbols()
+                ->symbols();
         });
     }
 }
