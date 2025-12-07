@@ -24,7 +24,7 @@
                         <label for="name" class="block text-text-secondary mb-2">{{ __('profile.name') }}</label>
                         <input type="text" name="name" id="name" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('name', $user->name) }}" required>
                         @error('name')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            <p class="text-error text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -32,7 +32,7 @@
                         <label for="email" class="block text-text-secondary mb-2">{{ __('profile.email') }}</label>
                         <input type="email" name="email" id="email" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('email', $user->email) }}" required>
                         @error('email')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            <p class="text-error text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <label for="current_password" class="block text-text-secondary mb-2">{{ __('profile.current_password') }}</label>
                         <input type="password" name="current_password" id="current_password" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold">
                         @error('current_password')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            <p class="text-error text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -53,7 +53,7 @@
                         <label for="password" class="block text-text-secondary mb-2">{{ __('profile.new_password') }}</label>
                         <input type="password" name="password" id="password" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold">
                         @error('password')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            <p class="text-error text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
 

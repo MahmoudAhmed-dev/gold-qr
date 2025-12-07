@@ -18,11 +18,11 @@
 
             <div class="flex gap-2">
                 <button id="download-all-pdf-btn" disabled
-                    class="bg-gold text-xs md:text-base text-surface px-4 py-2 rounded hover:bg-yellow-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    class="bg-gold text-xs md:text-base text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     {{ __('bars.download_all_pdf') }}
                 </button>
                 <a href="{{ route('bars.create', app()->getLocale()) }}"
-                    class="bg-gold text-xs md:text-base text-surface px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
+                    class="bg-gold text-xs md:text-base text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
                     {{ __('bars.create_new') }}
                 </a>
             </div>
@@ -33,7 +33,7 @@
             <form action="{{ route('bars.index', app()->getLocale()) }}" method="GET" class="flex gap-2">
                 <input type="text" name="search" placeholder="{{ __('bars.search_placeholder') }}"
                     value="{{ request('search') }}"
-                    class="w-full bg-surface p-2 rounded border border-gray-300 focus:outline-none focus:border-gold">
+                    class="w-full bg-surface p-2 rounded border border-text-secondary focus:outline-none focus:border-gold">
                 <button type="submit"
                     class="bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors">
                     {{ __('bars.search') }}

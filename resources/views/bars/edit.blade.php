@@ -15,7 +15,7 @@
                     <label for="code" class="block text-text-secondary mb-2">{{ __('bars.code') }}</label>
                     <input type="text" name="code" id="code" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('code', $bar->code) }}" required>
                     @error('code')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-error text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -23,7 +23,7 @@
                     <label for="serial_number" class="block text-text-secondary mb-2">{{ __('bars.serial_number') }}</label>
                     <input type="text" name="serial_number" id="serial_number" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('serial_number', $bar->serial_number) }}" required>
                     @error('serial_number')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-error text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -38,7 +38,7 @@
                         @endforeach
                     </select>
                     @error('material_id')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-error text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -46,7 +46,7 @@
                     <label for="weight" class="block text-text-secondary mb-2">{{ __('bars.weight') }} ({{ __('bars.gram') }})</label>
                     <input type="number" step="0.1" name="weight" id="weight" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('weight', $bar->weight) }}" required>
                     @error('weight')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-error text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -54,7 +54,7 @@
                     <label for="fineness" class="block text-text-secondary mb-2">{{ __('bars.fineness') }}</label>
                     <input type="number" step="0.01" name="fineness" id="fineness" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('fineness', $bar->fineness) }}" required>
                     @error('fineness')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-error text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 

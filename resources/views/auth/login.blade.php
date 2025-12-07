@@ -14,7 +14,7 @@
                     <label for="email" class="block text-text-secondary mb-2">{{ __('auth.email') }}</label>
                     <input type="email" name="email" id="email" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" value="{{ old('email') }}" required autofocus>
                     @error('email')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-error text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -22,7 +22,7 @@
                     <label for="password" class="block text-text-secondary mb-2">{{ __('auth.password_label') }}</label>
                     <input type="password" name="password" id="password" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-gold" required>
                     @error('password')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-error text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
