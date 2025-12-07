@@ -25,6 +25,10 @@ class BarController extends Controller
                   ->where('serial_number', $request->input('serial_number'));
         }
 
+        if ($request->has('export') && $request->export === 'json') {
+            return response()->json($query->get());
+        }
+
         $bars = $query->paginate(12);
         return view('bars.index', compact('bars'));
     }

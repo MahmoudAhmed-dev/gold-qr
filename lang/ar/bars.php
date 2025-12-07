@@ -13,6 +13,8 @@ return [
     'back_to_list' => 'العودة إلى القائمة',
     'back_to_search' => 'العودة إلى التحقق',
     'create_new' => 'إضافة',
+    'download_all_pdf' => 'تحميل PDF',
+    'select_all' => 'تحديد الكل',
     'create_bar' => 'إضافة سبيكة',
     'edit_bar' => 'تعديل السبيكة',
     'edit' => 'تعديل',
