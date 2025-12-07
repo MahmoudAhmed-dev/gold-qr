@@ -74,13 +74,25 @@ document.addEventListener('click', function(e) {
 
 const downloadAllBtn = document.getElementById('download-all-pdf-btn');
 const selectAllCheckbox = document.getElementById('select-all-bars');
+const barCheckboxes = document.querySelectorAll('.bar-checkbox');
+
+function updateDownloadButtonState() {
+    if (downloadAllBtn) {
+        const anyChecked = document.querySelectorAll('.bar-checkbox:checked').length > 0;
+        downloadAllBtn.disabled = !anyChecked;
+    }
+}
 
 if (selectAllCheckbox) {
     selectAllCheckbox.addEventListener('change', function() {
-        const checkboxes = document.querySelectorAll('.bar-checkbox');
-        checkboxes.forEach(cb => cb.checked = this.checked);
+        barCheckboxes.forEach(cb => cb.checked = this.checked);
+        updateDownloadButtonState();
     });
 }
+
+barCheckboxes.forEach(cb => {
+    cb.addEventListener('change', updateDownloadButtonState);
+});
 
 if (downloadAllBtn) {
     downloadAllBtn.addEventListener('click', async () => {
@@ -102,14 +114,8 @@ if (downloadAllBtn) {
                     });
                 });
             } else {
-                // Fetch all items if nothing selected
-                const currentUrl = new URL(window.location.href);
-                currentUrl.searchParams.set('export', 'json');
-                
-                const response = await fetch(currentUrl.toString());
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                bars = await response.json();
+                // Should not happen if button is disabled, but safe fallback
+                return;
             }
             
             const doc = new jsPDF();

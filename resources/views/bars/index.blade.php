@@ -17,8 +17,8 @@
             </div>
 
             <div class="flex gap-2">
-                <button id="download-all-pdf-btn"
-                    class="bg-gold text-xs md:text-base text-surface px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
+                <button id="download-all-pdf-btn" disabled
+                    class="bg-gold text-xs md:text-base text-surface px-4 py-2 rounded hover:bg-yellow-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     {{ __('bars.download_all_pdf') }}
                 </button>
                 <a href="{{ route('bars.create', app()->getLocale()) }}"
@@ -74,12 +74,12 @@
 
 
                         <div class="mt-4 flex flex-wrap gap-4">
-                            <button type="button"
+                            {{-- <button type="button"
                                 class="flex-1 lg:flex-none bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors download-qr-btn flex items-center justify-center"
                                 data-filename="QR-{{ $bar->code }}-{{ $bar->serial_number }}"
                                 data-code="{{ $bar->code }}" data-serial="{{ $bar->serial_number }}">
                                 {{ __('bars.download_qr') }}
-                            </button>
+                            </button> --}}
                             <a href="{{ route('bars.edit', [app()->getLocale(), $bar->id]) }}"
                                 class="flex-1 lg:flex-none bg-gold text-surface px-4 py-2 rounded hover:bg-dark-gold transition-colors flex items-center justify-center">
                                 {{ __('bars.edit') }}
