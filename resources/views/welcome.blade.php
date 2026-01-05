@@ -2,7 +2,7 @@
     <div class="flex-grow flex flex-col items-center justify-center p-8 text-center min-h-[80vh]">
         <div class="mb-8">
             <!-- Logo -->
-            <img src="{{ asset('logo.png') }}" alt="{{ __('welcome.store_name') }}" class="w-32 h-32 mx-auto object-contain">
+            <img src="{{ asset('logo.png') }}" alt="{{ __('welcome.store_name') }}" class="size-48 mx-auto object-contain">
         </div>
         <h1 class="text-5xl font-bold text-gold mb-4 font-source">{{ __('welcome.store_name') }}</h1>
         <p class="text-xl text-text-secondary mb-8 max-w-2xl">{{ __('welcome.description') }}</p>

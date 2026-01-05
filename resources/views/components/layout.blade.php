@@ -16,7 +16,7 @@
                     </svg>
                 </button>
                 <a href="{{ route('home', app()->getLocale()) }}" class="text-2xl font-bold text-gold font-source flex items-center gap-2">
-                    <img src="{{ asset('logo.png') }}" alt="Logo" class="w-8 h-8 object-contain">
+                    <img src="{{ asset('logo.png') }}" alt="Logo" class="size-12 object-contain">
                     {{ __('welcome.store_name') }}
                 </a>
             </div>
