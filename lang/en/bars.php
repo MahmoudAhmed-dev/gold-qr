@@ -16,6 +16,7 @@ return [
     'download_all_pdf' => 'Download PDF',
     'select_all' => 'Select All',
     'create_bar' => 'Create Bar',
+    'download_image' => 'Download Card',
     'edit_bar' => 'Edit Bar',
     'edit' => 'Edit',
     'delete' => 'Delete',

@@ -16,6 +16,7 @@ return [
     'download_all_pdf' => 'تحميل PDF',
     'select_all' => 'تحديد الكل',
     'create_bar' => 'إضافة سبيكة',
+    'download_image' => 'تحميل بطاقة السبيكة',
     'edit_bar' => 'تعديل السبيكة',
     'edit' => 'تعديل',
     'delete' => 'حذف',
